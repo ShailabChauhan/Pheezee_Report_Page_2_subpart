@@ -1,0 +1,432 @@
+//second Page Image
+function firstImageFunction(orientation,bodypart,exercisename,musclename,arr,arr1,affected,arr2,gender) {
+    var img_id="";
+    var img_name="";
+    var data_label="";
+  
+        if(gender == 'Male')
+        {
+          if(affected == orientation ) { 
+            img_id="sny";
+            for(let j=0; j<arr1.length; j++){
+            if(arr1[j].bodypart==bodypart &&  arr1[j].exercisename==exercisename && arr1[j].musclename==musclename ){
+  
+              if(arr1[j].orientation != orientation ){
+                img_id="syy";
+              }
+              for(let i=0; i<arr.length; i++){
+                if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                  img_id="syy";
+                }
+              }
+          
+             }
+            }
+  
+            if(arr2==0 ) { 
+            for(let i=0; i<arr.length; i++){
+              if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                img_id="syy";
+              }
+            }
+            }
+            } 
+  
+            if(affected != orientation && affected!="Bi-Lateral"){
+              img_id="oy";
+            }
+  
+            if(affected=="Bi-Lateral"){
+              img_id="bny";
+  
+              for(let j=0; j<arr1.length; j++){
+                if(arr1[j].bodypart==bodypart &&  arr1[j].exercisename==exercisename && arr1[j].musclename==musclename ){
+      
+                  if(arr1[j].orientation != orientation ){
+                    img_id="byy";
+                  }
+                  for(let i=0; i<arr.length; i++){
+                    if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                      img_id="byy";
+                    }
+                  }
+              
+                }
+                }
+      
+                if(arr2==0 ) { 
+                for(let i=0; i<arr.length; i++){
+                  if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                    img_id="byy";
+                  }
+                }
+              }
+            }
+              
+                if(img_id=="syy"){
+                  if(orientation=="Left"){
+                    img_name= "Male_"+bodypart+"_GREEN"+"-RED";
+                  } else if(orientation=="Right"){
+                      img_name="Male_"+bodypart+"_RED"+"-GREEN";
+                  }
+              } else if(img_id=="sny"){
+                  if(orientation=="Left"){
+                    img_name="Male_"+bodypart+"_GREY"+"-RED";
+                      data_label="*healthy side data not available";
+                  } else if(orientation=="Right"){      
+                      img_name="Male_"+bodypart+"_RED"+"-GREY";
+                      data_label="*healthy side data not available";
+                  }        
+              } else if(img_id=="oy"){
+                  if(orientation=="Left"){
+                    img_name="Male_"+bodypart+"_NO"+"-GREEN";
+                  } else if(orientation=="Right"){
+                    img_name="Male_"+bodypart+"_GREEN"+"-NO";
+                  }        
+              } else if(img_id=="byy"){
+                img_name="Male_"+bodypart+"_RED"+"-RED";
+              } else if(img_id=="bny"){
+                if(orientation=="Left"){
+                  img_name="Male_"+bodypart+"_GREY"+"-RED";
+                    data_label="*healthy side data not available";
+                } else if(orientation=="Right"){      
+                    img_name="Male_"+bodypart+"_RED"+"-GREY";
+                    data_label="*healthy side data not available";
+                }   
+              } 
+  
+          if(!affected){
+            data_label="*Please update the affected side in the edit patient";
+            img_name="Male_Full_default";
+          }
+  
+          if(affected == "Bi-Lateral")
+          {
+            data_label="";
+          }
+  
+  
+    return {
+    firstimage: img_name,
+    firstdatalabel:data_label,
+    };
+    }
+        else if(gender == 'Female')
+        {
+          if(affected == orientation ) { 
+            img_id="sny";
+            for(let j=0; j<arr1.length; j++){
+            if(arr1[j].bodypart==bodypart &&  arr1[j].exercisename==exercisename && arr1[j].musclename==musclename ){
+  
+              if(arr1[j].orientation != orientation ){
+                img_id="syy";
+              }
+              for(let i=0; i<arr.length; i++){
+                if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                  img_id="syy";
+                }
+              }
+          
+             }
+            }
+  
+            if(arr2==0 ) { 
+            for(let i=0; i<arr.length; i++){
+              if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                img_id="syy";
+              }
+            }
+          }
+          } 
+  
+          if(affected != orientation && affected!="Bi-Lateral"){
+            img_id="oy";
+          }
+  
+          if(affected=="Bi-Lateral"){
+            img_id="bny";
+  
+            for(let j=0; j<arr1.length; j++){
+              if(arr1[j].bodypart==bodypart &&  arr1[j].exercisename==exercisename && arr1[j].musclename==musclename ){
+    
+                if(arr1[j].orientation != orientation ){
+                  img_id="byy";
+                }
+                for(let i=0; i<arr.length; i++){
+                  if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                    img_id="byy";
+                  }
+                }
+            
+               }
+              }
+    
+              if(arr2==0 ) { 
+              for(let i=0; i<arr.length; i++){
+                if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+                  img_id="byy";
+                }
+              }
+            }
+          }
+         
+              if(img_id=="syy"){
+                if(orientation=="Left"){
+                  img_name="Female_" + bodypart+"_GREEN"+"-RED";
+                } else if(orientation=="Right"){
+                    img_name="Female_" +bodypart+"_RED"+"-GREEN";
+                }
+            } else if(img_id=="sny"){
+                if(orientation=="Left"){
+                  img_name="Female_" +bodypart+"_GREY"+"-RED";
+                    data_label="*healthy side data not available";
+                } else if(orientation=="Right"){      
+                    img_name="Female_" +bodypart+"_RED"+"-GREY";
+                    data_label="*healthy side data not available";
+                }        
+            } else if(img_id=="oy"){
+                if(orientation=="Left"){
+                  img_name="Female_" +bodypart+"_NO"+"-GREEN";
+                } else if(orientation=="Right"){
+                  img_name="Female_" +bodypart+"_GREEN"+"-NO";
+                }        
+            } else if(img_id=="byy"){
+              img_name="Female_" +bodypart+"_RED"+"-RED";
+            } else if(img_id=="bny"){
+              if(orientation=="Left"){
+                img_name="Female_" +bodypart+"_GREY"+"-RED";
+                  data_label="*healthy side data not available";
+              } else if(orientation=="Right"){      
+                  img_name="Female_" +bodypart+"_RED"+"-GREY";
+                  data_label="*healthy side data not available";
+              }   
+            } 
+  
+        if(!affected){
+          data_label="*Please update the affected side in the edit patient";
+          img_name="Female_Full_default";
+        }
+  
+        if(affected == "Bi-Lateral")
+        {
+          data_label="";
+        }
+        
+  
+  return {
+  firstimage: img_name,
+  firstdatalabel:data_label,
+  };
+        }
+  }
+  
+  //ROM
+  function zeroROMtable(orientation,bodypart,exercisename,musclename,maxrom,arr,affected){
+  
+    // console.log("shailabrom1", arr);
+    var zero_goodside_rom=0;
+    var zero_goodside=0;
+    var zero_goodside_romdeg="-";
+    if(affected == orientation || affected=="Bi-Lateral") { 
+    for(let i=0; i<arr.length; i++){
+      if(arr[i].orientation != orientation && arr[i].bodypart==bodypart &&  arr[i].exercisename==exercisename && arr[i].musclename==musclename ){
+        zero_goodside_rom=Number(Math.abs(arr[i].maxangle-arr[i].minangle));
+        zero_goodside = Math.floor((Number(maxrom)/zero_goodside_rom)*100);
+        if(zero_goodside < 25){zero_goodside="Needs Attention"} 
+        else if(zero_goodside <= 50){zero_goodside="Fair"} 
+        else if(zero_goodside <= 75){zero_goodside="Good"} 
+        else{zero_goodside="Excellent"}
+      }
+    }
+  }
+  if(zero_goodside_rom > 0 ){zero_goodside_romdeg=zero_goodside_rom + "°"}
+  if(zero_goodside_rom == 0 ){zero_goodside_rom="-"}
+  if(zero_goodside == 0 ){zero_goodside="-"}
+  
+  return{
+    zerogood:zero_goodside_rom,
+    zeropercent:zero_goodside,
+    zerouv:zero_goodside_romdeg
+  }
+  
+  }
+  
+
+function zeroEMGtable(orientation, bodypart, exercisename, musclename, maxemg, arr, affected, noramtive_emg_data_kt, noramtive_rom_data_kt) {
+    let noramtive_emg_data_kt_value = noramtive_emg_data_kt;
+   
+    let noramtive_rom_data_kt_value = noramtive_rom_data_kt;
+    let normative_exercisename = exercisename;
+    let normative_bodypart = bodypart;
+    let noramtive_musclename = musclename;
+    let normative_return_value;
+    
+    
+  
+    const array = noramtive_emg_data_kt_value;
+  
+    function filterArray(input) {
+      const [motion, joint, muscle] = input.split(',').map((item) => item.trim());
+      const output = {};
+  
+      if (motion && joint && muscle && Array.isArray(array[joint])) {
+        array[joint].forEach((jointMotion) => {
+          Object.keys(jointMotion).forEach((motionType) => {
+            if (motionType.toLowerCase().includes(motion.toLowerCase())) {
+              const filteredArray = jointMotion[motionType][0][muscle];
+              if (filteredArray !== undefined) {
+                if (!output[joint]) {
+                  output[joint] = [];
+                }
+                output[joint].push({ [motionType]: [{ [muscle]: filteredArray }] });
+              }
+            }
+          });
+        });
+      }
+  
+      return output;
+    }
+  
+    const input = `${normative_exercisename}, ${normative_bodypart}, ${noramtive_musclename}`;
+     
+    
+  // const input = "Plantarflexion, Ankle, Soleus";
+    // Call the function and log the output
+    const output = filterArray(input);
+    // console.log("555555555555555555555555",input);
+    // Check if the output is not an empty object
+      if (Object.keys(output).length !== 0) {
+        // Extract the value if the output is not empty
+        normative_return_value = output[normative_bodypart][0][normative_exercisename][0][noramtive_musclename];
+      
+      } else {
+        normative_return_value = "-1";
+      }
+      
+  
+   let normative_return_value_ktr = parseInt(normative_return_value);
+   
+  
+  
+  
+    var zero_goodside_emg = 0;
+    var zero_goodside = 0;
+    var zero_goodside_emguv = "-";
+    if (affected == orientation || affected == "Bi-Lateral") {
+      // for (let i = 0; i < arr.length; i++) {
+        // if (arr[i].orientation != orientation && arr[i].bodypart == bodypart && arr[i].exercisename == exercisename && arr[i].musclename == musclename) {
+          zero_goodside_emg = Number(normative_return_value_ktr);
+          
+          zero_goodside = Math.floor((Number(maxemg) / zero_goodside_emg) * 100);
+            console.log("RRRRRRRRRRRRRRRRRRRRRRRRRRR",zero_goodside);
+          if(zero_goodside <=0){zero_goodside = "-"}
+          else if (zero_goodside <= 25) { zero_goodside = "Poor" }
+          else if (zero_goodside <= 50) { zero_goodside = "Fair" }
+          else if (zero_goodside <= 75) { zero_goodside = "Good" }
+          else if (zero_goodside >= 75) { zero_goodside = "Excellent" }
+          // else { zero_goodside = "Excellent" }
+        
+        // }
+      // }
+    }
+    if (zero_goodside_emg > 0) { zero_goodside_emguv = zero_goodside_emg + " uV" }
+    if (zero_goodside_emg == 0) { zero_goodside_emg = "-" }
+    if (zero_goodside == 0) { zero_goodside = "-" }
+  
+    return {
+      zerogood: zero_goodside_emg,
+      zeropercent: zero_goodside,
+      zerouv: zero_goodside_emguv
+    }
+  }
+  
+
+  //firstROMtable
+
+  function firstROMtable(orientation,bodypart,exercisename,musclename,arr,arr1,maxangle,minangle,maxselected,noramtive_emg_data_kt,noramtive_rom_data_kt){
+  
+    let noramtive_emg_data_kt_value = noramtive_emg_data_kt;
+    let noramtive_rom_data_kt_value = noramtive_rom_data_kt;
+    let normative_exercisename = exercisename;
+    let normative_bodypart = bodypart;
+    let normative_return_value;
+    
+    function getPropertyValue(array, input) {
+    const [category, property] = input.split(',');
+  
+    if (array.hasOwnProperty(category) && array[category].hasOwnProperty(property)) {
+      return array[category][property];
+    } else {
+      return null;
+    }
+  }
+    const input = `${normative_bodypart},${normative_exercisename}`;
+    
+    const inputArray = input.split(',');
+    const myArray = noramtive_rom_data_kt_value;
+    const output = getPropertyValue(myArray, input);
+    if (output === null) {
+      normative_return_value = "-1"
+    } else {
+      normative_return_value = output;
+    }
+  
+  
+    let normative_return_value_ktr = parseInt(normative_return_value);
+    
+    
+    
+    var baseline_goodside_rom=0;
+    var goodside_rom=0;
+    var baseline_rom=0;
+    var cur_rom=0;
+    var rom_arrow_id="";
+    var rom_arrow_color=""; 
+  
+   
+    if(( maxangle>0 && minangle>0 )|| (maxangle<0 && minangle<0 ) ){    
+      cur_rom=Math.abs(maxangle)-Math.abs(minangle);
+      cur_rom = Math.abs(cur_rom);
+    } else{
+      cur_rom=Math.abs(maxangle)+Math.abs(minangle);
+    }
+  
+    goodside_rom=Math.floor((Number(cur_rom)/Number(normative_return_value_ktr))*100);
+    if( goodside_rom>100 ){ goodside_rom="100"}
+  
+    if(arr1!=0 ){
+      arr1.map(function (y,j){
+  
+    if(arr1[j].orientation==orientation && arr1[j].bodypart==bodypart &&  arr1[j].exercisename==exercisename && arr1[j].musclename==musclename && exercisename!='Isometric'){
+      if((arr1[j].maxangle>0 && arr1[j].minangle>0)|| (arr1[j].maxangle<0 && arr1[j].minangle<0 ) ){             
+        baseline_rom=Math.abs(arr1[j].maxangle)-Math.abs(arr1[j].minangle);
+      } else{
+        baseline_rom=Math.abs(arr1[j].maxangle)+Math.abs(arr1[j].minangle);
+      }
+     baseline_goodside_rom=Math.floor((baseline_rom/Number(maxselected))*100)
+    if( baseline_goodside_rom>100 ){baseline_goodside_rom="Healthy"}
+    } 
+  })
+  
+    }
+  
+    if(cur_rom < baseline_rom){rom_arrow_id="Red-Downward"; rom_arrow_color="#D22424";}else{rom_arrow_id="Green-Upward"; rom_arrow_color="#00B286";}
+  return{
+    innerbaserom:baseline_rom,
+    innergoodrom:goodside_rom,
+    innerbasegoodrom: baseline_goodside_rom,
+    innercurrom: cur_rom,
+    innerromarrow: rom_arrow_id,
+    innerromarrowcol: rom_arrow_color,
+  };
+  }
+  
+
+  //healthy Side data
+
+  function healthysideDir(orientation)
+{
+    if(orientation == 'Right')return 'Left';
+    else return 'Right';
+}
